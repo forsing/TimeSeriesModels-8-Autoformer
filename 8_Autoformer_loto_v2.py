@@ -3,30 +3,6 @@
 
 
 """
-Polazni kod treba samo da se promeni da radi nad mojim CSV-om, a sintetička od demoa izbaciti. 
-
-Razumeo. Pravilo za sve buduće modele:
-
-polazni kod iz članka se direktno menja da radi nad tvojim loto CSV-om
-sintetička demo data, neiskorišćeni delovi, sve što ne pripada polaznom zadatku se izbacuje
-predviđa se sledeće loto kolo + back-test, snimanje u TXT
-bez paralelnih "novih" klasa ispod polaznog, bez pitanja
-
-
-
-
-Jasno. Ponavljam svojim rečima da budem siguran:
-
-Polazni kod iz članka prvo mora da proradi kakav jeste (sintetički demo, ništa ne ruši).
-Tek posle se polazni direktno menja da radi nad tvojim loto CSV-om — sintetička demo data se izbacuje, svi neiskorišćeni delovi se izbacuju.
-Cilj v2 fajla: predviđa sledeće loto kolo + back-test, snimanje rezultata u TXT.
-Bez paralelnih „novih" klasa ispod polaznog, bez postavljanja pitanja kad je sve jasno.
-"""
-
-
-
-
-"""
 Hibridne arhitekture za predikciju koje kombinuju deep learning i klasične time-series modele.
 
 8. Autoformer: Self-Learning Decomposition (Dynamic Decomposition)  
@@ -223,9 +199,9 @@ if torch.backends.cudnn.is_available():
     torch.backends.cudnn.benchmark = False
 
 
-CSV_PATH = "/Users/4c/Desktop/GHQ/KvantniRegresor/loto7hh_4620_k41.csv"
-OUT_TXT = Path("/Users/4c/Desktop/GHQ/TimeSeriesModels/8_Autoformer_loto_v2_predikcija.txt")
-PLOT_PATH = "/Users/4c/Desktop/GHQ/TimeSeriesModels/8_autoformer_gate_evolution.png"
+CSV_PATH = "/loto7hh_4620_k41.csv"
+OUT_TXT = Path("/8_Autoformer_loto_v2_predikcija.txt")
+PLOT_PATH = "/8_autoformer_gate_evolution.png"
 
 N_MIN, N_MAX = 1, 39
 K = 7
@@ -554,9 +530,9 @@ epoch   50/50  train_loss=0.25590  val_loss=2.47185  best_epoch=1
 ✅ Trening završen. best_epoch=1, best_val_loss=1.13820
 
 Predikcija sledeće Loto 7/39 kombinacije:
-Autoformer_best     -> [9, 10, 13, 22, 23, 26, 37]  (suma=140, neparnih=4/7, niskih(<=19)=3/7, raspon=28)
-Autoformer_final    -> [10, 17, 19, 20, 22, 23, 28]  (suma=139, neparnih=3/7, niskih(<=19)=3/7, raspon=18)
-Autoformer_ensemble -> [10, 19, 20, 22, 23, 28, 39]  (suma=161, neparnih=3/7, niskih(<=19)=2/7, raspon=29)
+Autoformer_best     -> [9, x, 13, y, 23, z, 37]  (suma=140, neparnih=4/7, niskih(<=19)=3/7, raspon=28)
+Autoformer_final    -> [10, x, 19, y, 22, z, 28]  (suma=139, neparnih=3/7, niskih(<=19)=3/7, raspon=18)
+Autoformer_ensemble -> [10, x, 20, y, 23, z, 39]  (suma=161, neparnih=3/7, niskih(<=19)=2/7, raspon=29)
 
 Back-test (poslednjih 100 izvlačenja):
 model                    hits/7    hit%     AUC    LRAP
